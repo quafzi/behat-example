@@ -5,3 +5,4 @@
 /bin/behat
 /bin/phpunit
 /tests/junit.xml
+/coverage/
