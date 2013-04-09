@@ -1,6 +1,7 @@
 {
     "require": {
         "behat/behat": "2.4.*@stable",
+        "mockery/mockery": "dev-master@dev",
         "phpunit/phpunit": "3.7.*"
     },
 
