@@ -11,8 +11,8 @@ Feature: weather indicator
     Scenario:
         Given xml input "<weather><cloud>0</cloud><temperature>-10</temperature><rain>0</rain></weather>"
         When I run my application
-        Then I should get no exception
-        And I should get a weather class instance
+        Then I should get no error
+        But I should be able to get weather information
 
     Scenario Outline:
         Given value <cloud> for clouds

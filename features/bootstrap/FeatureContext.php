@@ -68,7 +68,7 @@ class FeatureContext extends BehatContext
     }
 
     /**
-     * @Then /^I should get no exception$/
+     * @Then /^I should get no error$/
      */
     public function expectNoException()
     {
@@ -76,7 +76,7 @@ class FeatureContext extends BehatContext
     }
 
     /**
-     * @Given /^I should get a weather class instance$/
+     * @Given /^I should be able to get weather information$/
      */
     public function expectWeatherClassInstance()
     {
