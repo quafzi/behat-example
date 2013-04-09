@@ -8,6 +8,14 @@ class Weather
     private $temperature;
     private $rain;
 
+    public function fetchData($service)
+    {
+        $this->parseInput(
+            $service->getData()
+        );
+        return $this;
+    }
+
     public function parseInput($input)
     {
         if ($xml = @simplexml_load_string($input)) {
