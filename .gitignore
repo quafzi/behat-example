@@ -4,3 +4,4 @@
 /composer.phar
 /bin/behat
 /bin/phpunit
+/tests/junit.xml
