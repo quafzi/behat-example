@@ -41,15 +41,15 @@ class FeatureContext extends BehatContext
     /**
      * @Given /^xml input "([^"]*)"$/
      */
-    public function xmlInput($arg1)
+    public function xmlInput($input)
     {
-        $this->input = $arg1;
+        $this->input = $input;
     }
 
     /**
      * @When /^I run my application$/
      */
-    public function iRunMyApplication()
+    public function parseInput()
     {
         $this->exceptionMessage = null;
         try {
@@ -62,15 +62,15 @@ class FeatureContext extends BehatContext
     /**
      * @Then /^I should get an exception with message "([^"]*)"$/
      */
-    public function iShouldGetAnExceptionWithMessage($arg1)
+    public function expectException($message)
     {
-        assertEquals($arg1, $this->exceptionMessage);
+        assertEquals($message, $this->exceptionMessage);
     }
 
     /**
      * @Then /^I should get no exception$/
      */
-    public function iShouldGetNoException()
+    public function expectNoException()
     {
         assertNull($this->exceptionMessage);
     }
@@ -78,7 +78,7 @@ class FeatureContext extends BehatContext
     /**
      * @Given /^I should get a weather class instance$/
      */
-    public function iShouldGetAWeatherClassInstance()
+    public function expectWeatherClassInstance()
     {
         assertTrue(is_object($this->instance), 'expected object');
         assertInstanceOf('Quafzi\Weather', $this->instance);
@@ -87,15 +87,15 @@ class FeatureContext extends BehatContext
     /**
      * @Given /^value (\d+) for clouds$/
      */
-    public function valueForClouds($arg1)
+    public function setClouds($clouds)
     {
-        $this->instance->setClouds($arg1);
+        $this->instance->setClouds($clouds);
     }
 
     /**
      * @When /^I call cloudiness$/
      */
-    public function iCallCloudiness()
+    public function getCloudiness()
     {
         $this->cloudiness = $this->instance->getCloudiness();
     }
@@ -103,31 +103,31 @@ class FeatureContext extends BehatContext
     /**
      * @Then /^I should get cloudiness (.+)$/
      */
-    public function iShouldGetCloudiness($arg1)
+    public function expectCloudiness($cloudiness)
     {
-        assertEquals($arg1, $this->cloudiness);
+        assertEquals($cloudiness, $this->cloudiness);
     }
 
     /**
      * @Given /^value (\d+) for temperature$/
      */
-    public function valueForTemperature($arg1)
+    public function setTemperature($temperature)
     {
-        $this->instance->setTemperature($arg1);
+        $this->instance->setTemperature($temperature);
     }
 
     /**
      * @Given /^value (\d+) for rain$/
      */
-    public function valueForRain($arg1)
+    public function setRain($rain)
     {
-        $this->instance->setRain($arg1);
+        $this->instance->setRain($rain);
     }
 
     /**
      * @When /^I call summary$/
      */
-    public function iCallSummary()
+    public function getSummary()
     {
         $this->summary = $this->instance->getSummary();
     }
@@ -135,16 +135,8 @@ class FeatureContext extends BehatContext
     /**
      * @Then /^I should get summary "([^"]*)"$/
      */
-    public function iShouldGetSummary($arg1)
+    public function expectSummary($summary)
     {
-        assertEquals($arg1, $this->summary, 'got "' . $this->summary . '" instead');
-    }
-
-    /**
-     * @Given /^value <cloud> for clouds$/
-     */
-    public function valueCloudForClouds()
-    {
-        throw new PendingException();
+        assertEquals($summary, $this->summary, 'got "' . $this->summary . '" instead');
     }
 }
