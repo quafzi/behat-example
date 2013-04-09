@@ -19,6 +19,14 @@ class Weather
         }
     }
 
+    public function __call($method, $args)
+    {
+        if ('get' == substr($method, 0, 3) && isset($this->{lcfirst(substr($method, 3))})) {
+            return $this->{lcfirst(substr($method, 3))};
+        }
+        throw new \BadMethodCallException(__class__ . ' has no method ' . $method);
+    }
+
     public function setClouds($clouds)
     {
         $this->clouds = $clouds;

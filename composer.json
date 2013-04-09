@@ -1,6 +1,7 @@
 {
     "require": {
-        "behat/behat": "2.4.*@stable"
+        "behat/behat": "2.4.*@stable",
+        "phpunit/phpunit": "3.7.*"
     },
 
     "config": {
