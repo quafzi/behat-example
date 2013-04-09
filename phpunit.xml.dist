@@ -15,6 +15,12 @@
    <testsuite name="My Test Suite">
         <directory>tests</directory>
    </testsuite>
+   <filter>
+       <blacklist>
+            <!-- Exclude vendor files from code coverage -->
+            <directory>vendor</directory>
+        </blacklist>
+    </filter>
    <logging>
       <!-- Uncomment this line if you want to have coverage report generated every test run
       <log type="coverage-html" target="tests/coverage" charset="UTF-8"
