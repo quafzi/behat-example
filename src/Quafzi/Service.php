@@ -6,6 +6,9 @@ class Service
 {
     public function getData()
     {
+        if (0 == rand(0, 10)) {
+            return '<invalid>response';
+        }
         $output = <<<XML
 <weather>
     <clouds>%s</clouds>

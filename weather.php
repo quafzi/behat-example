@@ -4,5 +4,9 @@ require_once 'src/Quafzi/Weather.php';
 $service = new \Quafzi\Service();
 $weather = new \Quafzi\Weather();
 
-echo $weather->fetchData($service)
-    ->getSummary() . PHP_EOL;
+try {
+    echo $weather->fetchData($service)
+        ->getSummary() . PHP_EOL;
+} catch (\Exception $e) {
+    echo 'ERROR: ' . $e->getMessage() . PHP_EOL;
+}
